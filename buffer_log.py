@@ -6,18 +6,17 @@ import threading as th
 from tkinter import scrolledtext
 import time
 
-def click():
+def click(): 
     lab.configure(text='Начали')
     btn.configure(text='Остановить', command=stop)    
     t2.start()
     
     
-def writer():
+def writer(): #функция дял записи буфера обмена в файл
     try:
         while True:
             f = open('buffer.txt', 'a')
             k.wait("ctrl+v")
-            print('1')
             x = pc.paste()
             f.write(x + '\n')
             f.close
